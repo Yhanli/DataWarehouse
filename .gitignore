@@ -266,3 +266,5 @@ dist
 /DataWarehouse/frontend/migrations/
 /DataWarehouse/DataWarehouse/parameter.py
 /DataWarehouse/frontend/static_root/frontend/main.js
+
+
