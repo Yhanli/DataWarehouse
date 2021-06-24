@@ -14,3 +14,5 @@ class TitleOwner(models.Model):
     estate_description = models.TextField(max_length=1000, null=True)
     owners = models.CharField(max_length=10000, null=True)
     spatial_extents_shared = models.CharField(max_length=100, null=True)
+
+
