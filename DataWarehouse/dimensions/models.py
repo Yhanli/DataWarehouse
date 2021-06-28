@@ -49,3 +49,35 @@ class StreetAddress(models.Model):
     full_address_ascii = models.CharField(max_length=1000, null=True)
     shape_X = models.FloatField(null=True)
     shape_Y = models.FloatField(null=True)
+
+
+class AddressTitle(models.Model):
+    # title_id = id
+    title_no = models.CharField(max_length=191, null=True, db_index=True)
+    full_address = models.CharField(max_length=191, null=True)
+    address = models.CharField(max_length=191, null=True)
+    suburb = models.CharField(max_length=100, null=True)
+
+
+class AddressTitleMortgageOwner(models.Model):
+    title_no = models.CharField(max_length=191, null=True, db_index=True)
+    encumbrancees = models.CharField(max_length=1000, null=True)
+    instrument_lodged_datetime = models.DateTimeField(null=True)
+    instrument_type = models.CharField(max_length=191, null=True)
+    full_address = models.CharField(max_length=191, null=True)
+    address = models.CharField(max_length=191, null=True, db_index=True)
+    suburb = models.CharField(max_length=191, null=True)
+    estate_description = models.TextField(max_length=1000, null=True)
+    owners = models.CharField(max_length=10000, null=True)
+    issue_date = models.DateTimeField(null=True)
+    type = models.CharField(max_length=191, null=True)
+    land_district = models.CharField(max_length=191, null=True)
+
+
+class OwnerTitleAddress(models.Model):
+    title_no = models.CharField(max_length=191, null=True, db_index=True)
+    land_district = models.CharField(max_length=191, null=True)
+    issue_date = models.DateTimeField(null=True)
+    owner = models.CharField(max_length=191, null=True, db_index=True)
+    full_address = models.CharField(max_length=191, null=True)
+    address = models.CharField(max_length=191, null=True, db_index=True)
