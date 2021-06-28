@@ -12,6 +12,8 @@ djangorestframework = "3.12.4"
 PyMySQL = "1.0.2"
 pytz = "2021.1"
 sqlparse = "0.4.1"
+cryptography = "*"
+django-admin-search = "*"
 
 [requires]
-python_version = "3.8"
+python_version = "3.8.*"
