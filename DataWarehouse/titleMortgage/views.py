@@ -35,9 +35,9 @@ from .serializers import *
 #         return [renderer() for renderer in rends]
 
 
-class TitleMortgageViewSet(viewsets.ModelViewSet):
-    permission_classes = [
-        permissions.IsAuthenticated
-    ]
-    serializer_class = TitleMortgageSerializer
-    queryset = TitleMortgage.objects.all()
+# class TitleMortgageViewSet(viewsets.ModelViewSet):
+#     permission_classes = [
+#         permissions.IsAuthenticated
+#     ]
+#     serializer_class = TitleMortgageSerializer
+#     queryset = TitleMortgage.objects.all()
