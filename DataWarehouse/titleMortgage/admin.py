@@ -9,13 +9,13 @@ admin.site.index_title = "Welcome"
 
 class TitleMortgagePageAdmin(admin.ModelAdmin):
     list_display = ['title_no', 'encumbrancees', 'instrument_lodged_datetime', 'instrument_type', 'memorial_text']
-    list_filter = [
-        'encumbrancees'
-    ]
+    # list_filter = [
+    #     'encumbrancees'
+    # ]
     search_fields = [
         'instrument_type',
         'encumbrancees'
     ]
-    ordering = ['-instrument_lodged_datetime']
+    # ordering = ['-instrument_lodged_datetime']
 
 admin.site.register(TitleMortgage, TitleMortgagePageAdmin)
