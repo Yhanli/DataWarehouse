@@ -60,6 +60,9 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'DataWarehouse.urls'
 
+SESSION_COOKIE_AGE = 1 * 60 * 60
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,
