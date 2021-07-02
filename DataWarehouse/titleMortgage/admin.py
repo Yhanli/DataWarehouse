@@ -21,14 +21,15 @@ class FormSearchMortgage(Form):
     title_no = CharField(required=False)
 
 
-class TitleMortgagePageAdmin(AdvancedSearchAdmin):
+class TitleMortgagePageAdmin(admin.ModelAdmin):
     list_display = ['title_no', 'encumbrancees', 'instrument_lodged_datetime', 'instrument_type', 'memorial_text']
 
-    # search_fields = [
-    #     'instrument_type',
-    #     'encumbrancees'
-    # ]
-    search_form = FormSearchMortgage
+    search_fields = [
+        'title_no',
+        'instrument_type',
+        'encumbrancees'
+    ]
+    # search_form = FormSearchMortgage
     # ordering = ['-instrument_lodged_datetime']
 
 
