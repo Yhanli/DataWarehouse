@@ -25,11 +25,15 @@ class FormSearchMortgage(Form):
     title_no = CharField(required=False)
 
 
-class AddressTitleMortgageOwnerPageAdmin(AdvancedSearchAdmin):
+class AddressTitleMortgageOwnerPageAdmin(admin.ModelAdmin):
     list_display = [field.name for field
                     in AddressTitleMortgageOwner._meta.get_fields() if field.name not in remove_fields]
-    search_form = FormSearchMortgage
-
+    # search_form = FormSearchMortgage
+    search_fields = [
+        'encumbrancees',
+        'title_no',
+        'address'
+    ]
 
 class FormSearchOwner(Form):
     address = CharField(required=False, widget=TextInput(
@@ -42,10 +46,14 @@ class FormSearchOwner(Form):
     owner = CharField(required=False)
 
 
-class OwnerVSTitleVSAddressDdmin(AdvancedSearchAdmin):
+class OwnerVSTitleVSAddressDdmin(admin.ModelAdmin):
     list_display = [field.name for field in OwnerTitleAddress._meta.get_fields()]
-    search_form = FormSearchOwner
-
+    # search_form = FormSearchOwner
+    search_fields = [
+        'address',
+        'title_no',
+        'owner'
+    ]
 
 admin.site.register(AddressTitleMortgageOwner, AddressTitleMortgageOwnerPageAdmin)
 admin.site.register(OwnerTitleAddress, OwnerVSTitleVSAddressDdmin)
