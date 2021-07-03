@@ -21,7 +21,7 @@ class UpdateLastActivityMiddleware(MiddlewareMixin):
             if len(last_last_text) > MAX_REQUEST_URL:
                 last_last_text = last_last_text[-MAX_REQUEST_URL:]
             url_path = get_request_path(request.build_absolute_uri)
-            req_time = timezone.now().strftime("%Y/%M/%d %H:%m:%S")
+            req_time = timezone.now().strftime("%Y/%m/%d %H:%M:%S")
             line = f'{req_time} {request.method} {url_path}'
             last_last_text.append(line)
             userProfile.last_request_text = '\n'.join(last_last_text)
