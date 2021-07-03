@@ -46,7 +46,7 @@ class FormSearchOwner(Form):
     owner = CharField(required=False)
 
 
-class OwnerVSTitleVSAddressDdmin(admin.ModelAdmin):
+class OwnerVSTitleVSAddressAdmin(admin.ModelAdmin):
     list_display = [field.name for field in OwnerTitleAddress._meta.get_fields()]
     # search_form = FormSearchOwner
     search_fields = [
@@ -56,4 +56,4 @@ class OwnerVSTitleVSAddressDdmin(admin.ModelAdmin):
     ]
 
 admin.site.register(AddressTitleMortgageOwner, AddressTitleMortgageOwnerPageAdmin)
-admin.site.register(OwnerTitleAddress, OwnerVSTitleVSAddressDdmin)
+admin.site.register(OwnerTitleAddress, OwnerVSTitleVSAddressAdmin)
