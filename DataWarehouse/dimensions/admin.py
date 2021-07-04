@@ -35,6 +35,7 @@ class AddressTitleMortgageOwnerPageAdmin(admin.ModelAdmin):
         'address'
     ]
 
+
 class FormSearchOwner(Form):
     address = CharField(required=False, widget=TextInput(
         attrs={
@@ -48,12 +49,13 @@ class FormSearchOwner(Form):
 
 class OwnerVSTitleVSAddressAdmin(admin.ModelAdmin):
     list_display = [field.name for field in OwnerTitleAddress._meta.get_fields()]
-    # search_form = FormSearchOwner
-    search_fields = [
-        'address',
-        'title_no',
-        'owner'
-    ]
+    search_form = FormSearchOwner
+    # search_fields = [
+    #     'address',
+    #     'title_no',
+    #     'owner'
+    # ]
+
 
 admin.site.register(AddressTitleMortgageOwner, AddressTitleMortgageOwnerPageAdmin)
 admin.site.register(OwnerTitleAddress, OwnerVSTitleVSAddressAdmin)
