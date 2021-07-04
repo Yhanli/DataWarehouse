@@ -47,7 +47,7 @@ class FormSearchOwner(Form):
     owner = CharField(required=False)
 
 
-class OwnerVSTitleVSAddressAdmin(admin.ModelAdmin):
+class OwnerVSTitleVSAddressAdmin(AdvancedSearchAdmin):
     list_display = [field.name for field in OwnerTitleAddress._meta.get_fields()]
     search_form = FormSearchOwner
     # search_fields = [
