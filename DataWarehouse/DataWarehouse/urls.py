@@ -22,5 +22,6 @@ from django.conf.urls import url, re_path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('admin', admin.site.urls),
+    path('', admin.site.urls),
     path('', include('titleMortgage.urls')),
 ]
