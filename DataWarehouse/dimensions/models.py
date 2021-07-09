@@ -77,6 +77,7 @@ class AddressTitleMortgageOwner(models.Model):
 class OwnerTitleAddress(models.Model):
     title_no = models.CharField(max_length=191, null=True, db_index=True)
     land_district = models.CharField(max_length=191, null=True)
+    instrument_lodged_datetime = models.DateTimeField(null=True)
     issue_date = models.DateTimeField(null=True)
     owner = models.CharField(max_length=191, null=True, db_index=True)
     full_address = models.CharField(max_length=191, null=True)

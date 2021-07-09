@@ -32,7 +32,8 @@ class AddressTitleMortgageOwnerPageAdmin(admin.ModelAdmin):
     search_fields = [
         'encumbrancees',
         'title_no',
-        'address'
+        'address',
+        'owners'
     ]
 
 
@@ -43,6 +44,12 @@ class FormSearchOwner(Form):
             'filter_method': '__icontains'
         }
     ))
+    # owner = CharField(required=False, widget=TextInput(
+    #     attrs={
+    #         'filter_field': 'owner',
+    #         'filter_method': '__icontains'
+    #     }
+    # ))
     title_no = CharField(required=False)
     owner = CharField(required=False)
 
