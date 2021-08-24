@@ -26,7 +26,16 @@ jobs:
         python -m pip install --upgrade pip
         pip install pipenv
         pipenv install --deploy --dev
-        
+    - name: Create env file
+      run: |
+          touch DataWarehouse/DataWarehouse/parameter.py
+          echo class ENV: >> DataWarehouse/DataWarehouse/parameter.py
+          echo     DJANGO_SECRET_KEY = "django"  >> DataWarehouse/DataWarehouse/parameter.py
+          echo     DEBUG = True >> DataWarehouse/DataWarehouse/parameter.py
+          echo     ALLOWED_HOSTS = ['*'] >> DataWarehouse/DataWarehouse/parameter.py
+          echo     DB_CONFIG = {'default': {'ENGINE': 'django.db.backends.mysql','NAME': 'DWH','USER': 'yhanl','PASSWORD': '979434','HOST': '192.168.1.71','PORT': '3306',}} >> DataWarehouse/DataWarehouse/parameter.py
+          echo     MAX_REQUEST_URL = 1000 >> DataWarehouse/DataWarehouse/parameter.py
+          cat DataWarehouse/DataWarehouse/parameter.py
     - name: Run Tests
       run: |
         pipenv run python DataWarehouse/manage.py test
