@@ -48,9 +48,9 @@ jobs:
       - name: deploy with SSH
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ HOST.HOST }}
-          username: ${{ HOST.USERNAME }}
-          key: ${{ HOST.PRIVATE_KEY }}
+          host: ${{ HOST }}
+          username: ${{ USERNAME }}
+          key: ${{ PRIVATE_KEY }}
           port: 22
           script: |
             cd /var/www/html/DataWarehouse/
