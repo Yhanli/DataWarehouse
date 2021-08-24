@@ -30,11 +30,11 @@ jobs:
       run: |
           touch DataWarehouse/DataWarehouse/parameter.py
           echo class ENV: >> DataWarehouse/DataWarehouse/parameter.py
-          echo     DJANGO_SECRET_KEY = "django"  >> DataWarehouse/DataWarehouse/parameter.py
-          echo     DEBUG = True >> DataWarehouse/DataWarehouse/parameter.py
-          echo     ALLOWED_HOSTS = ['*'] >> DataWarehouse/DataWarehouse/parameter.py
-          echo     DB_CONFIG = {'default': {'ENGINE': 'django.db.backends.mysql','NAME': 'DWH','USER': 'testerdb','PASSWORD': 'testing','HOST': 'localhost','PORT': '3306',}} >> DataWarehouse/DataWarehouse/parameter.py
-          echo     MAX_REQUEST_URL = 1000 >> DataWarehouse/DataWarehouse/parameter.py
+          echo "    DJANGO_SECRET_KEY = 'django'"  >> DataWarehouse/DataWarehouse/parameter.py
+          echo "    DEBUG = True" >> DataWarehouse/DataWarehouse/parameter.py
+          echo "    ALLOWED_HOSTS = ['*']" >> DataWarehouse/DataWarehouse/parameter.py
+          echo "    DB_CONFIG = {'default': {'ENGINE': 'django.db.backends.mysql','NAME': 'DWH','USER': 'testerdb','PASSWORD': 'testing','HOST': 'localhost','PORT': '3306',}}" >> DataWarehouse/DataWarehouse/parameter.py
+          echo "    MAX_REQUEST_URL = 1000" >> DataWarehouse/DataWarehouse/parameter.py
           cat DataWarehouse/DataWarehouse/parameter.py
     - name: Run Tests
       run: |
