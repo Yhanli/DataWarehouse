@@ -48,10 +48,9 @@ jobs:
       - name: deploy with SSH
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ env.HOST }}
-          username: ${{ env.USERNAME }}
-          password: ${{ env.PRIVATE_KEY }}
+          host: ${{ env.USERNAME }}@${{ env.HOST }}
           port: 22
+          password: ${{ env.PRIVATE_KEY }}
           script: |
             cd /var/www/html/DataWarehouse/
             git pull
