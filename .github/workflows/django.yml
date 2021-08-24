@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  test:
 
     runs-on: ubuntu-latest
     strategy:
@@ -39,3 +39,19 @@ jobs:
     - name: Run Tests
       run: |
         pipenv run python DataWarehouse/manage.py test
+    
+  deploy:
+    needs: [test]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: deploy with SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ HOST.HOST }}
+          username: ${{ HOST.USERNAME }}
+          key: ${{ HOST.PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd /var/www/html/DataWarehouse/
+            git pull
