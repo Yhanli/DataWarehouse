@@ -28,7 +28,6 @@ jobs:
         pipenv install --deploy --dev
     - name: Create env file
       run: |
-          echo ${{ secrets.PRIVATE_KEY }}
           touch DataWarehouse/DataWarehouse/parameter.py
           echo class ENV: >> DataWarehouse/DataWarehouse/parameter.py
           echo "    DJANGO_SECRET_KEY = 'django'"  >> DataWarehouse/DataWarehouse/parameter.py
