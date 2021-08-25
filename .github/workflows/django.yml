@@ -51,7 +51,7 @@ jobs:
           host: ${{ env.HOST }}
           username: ${{ env.USERNAME }}
           port: 22
-          password: ${{ env.PRIVATE_KEY }}
+          key: ${{ env.PRIVATE_KEY }}
           script: |
             cd /var/www/html/DataWarehouse/
             git pull
