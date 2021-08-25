@@ -28,7 +28,7 @@ jobs:
         pipenv install --deploy --dev
     - name: Create env file
       run: |
-          echo ${{ env.PRIVATE_KEY }}
+          echo ${{ secrets.PRIVATE_KEY }}
           touch DataWarehouse/DataWarehouse/parameter.py
           echo class ENV: >> DataWarehouse/DataWarehouse/parameter.py
           echo "    DJANGO_SECRET_KEY = 'django'"  >> DataWarehouse/DataWarehouse/parameter.py
@@ -49,10 +49,10 @@ jobs:
       - name: deploy with SSH
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ env.HOST }}
-          username: ${{ env.USERNAME }}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
           port: 22
-          key: ${{ env.PRIVATE_KEY }}
+          key: ${{ secrets.PRIVATE_KEY }}
           script: |
             cd /var/www/html/DataWarehouse/
             git pull
