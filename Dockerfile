@@ -1,5 +1,5 @@
 FROM python:3.8.12-alpine
-RUN apk add --update --no-cache --virtual gcc g++ musl-dev python3-dev libffi-dev openssl-dev
+RUN apk add --update --no-cache gcc g++ musl-dev python3-dev libffi-dev openssl-dev
 
 RUN pip install --upgrade pip
 RUN pip install pipenv
